@@ -59,6 +59,24 @@
             </div>
         </div>
 
+        <div class="my-3">
+            <label for="type_id" class="form-label">Parte da sviluppare</label>
+            <select class="form-select  @error('type_id') is-invalid @enderror" type="text" id="type_id"
+                name="type_id">
+                <option value="">Nessuna parte sviluppata</option>
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}" @if (old('type_id') ?? $project->type_id == $type->id) selected @endif>
+                        {{ $type->developed_part }}
+                    </option>
+                @endforeach
+            </select>
+            @error('type_id')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+        </div>
+
         <div class="input-group my-4">
             <span class="input-group-text">Descrizione</span>
             <label for="description" class="form-label"></label>

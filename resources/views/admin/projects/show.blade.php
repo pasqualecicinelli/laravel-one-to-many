@@ -19,6 +19,13 @@
         </div>
 
         <div class="col-3">
+            <h5>Parte sviluppata</h5>
+            <span>{{ $project->type ? $project->type->developed_part : 'Non eiste una parte sviluppata' }}</span>
+            - {{ $project->type?->id }}
+
+        </div>
+
+        <div class="col-3">
             <h5>Slug</h5>
             <span>{{ $project->slug }}</span>
 

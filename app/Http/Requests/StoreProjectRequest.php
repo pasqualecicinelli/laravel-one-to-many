@@ -27,7 +27,8 @@ class StoreProjectRequest extends FormRequest
             'name_prog' => ['required', 'string', 'max:30'],
             'repo' => ['required', 'string', 'max:50'],
             'link' => ['required', 'url',],
-            'description' => ['string'],
+            'description' => ['nullable', 'string'],
+            'type_id' => ['nullable', 'exists:types,id']
 
         ];
     }
@@ -48,6 +49,7 @@ class StoreProjectRequest extends FormRequest
 
             'description.string' => 'La descrizione deve essere una stringa',
 
+            'type_id.exists' => 'La parte di sviluppo scelta non è valida'
         ];
     }
 
