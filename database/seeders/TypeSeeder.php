@@ -15,17 +15,15 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
-        $_parts = [
+        $labels = [
             "front-end",
             "back-end",
             "full-stack"
         ];
 
-        //  $_types=" ";
-
-        foreach ($_parts as $_part) {
+        foreach ($labels as $label) {
             $type = new Type();
-            $type->developed_part = $_part;
+            $type->developed_part = $label;
             $type->save();
         }
     }
